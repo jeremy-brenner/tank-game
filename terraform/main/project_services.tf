@@ -1,5 +1,9 @@
 locals {
-  enabled_services = [ "cloudfunctions", "cloudbuild" ]
+  enabled_services = [ 
+    "dns", 
+    "cloudfunctions", 
+    "cloudbuild",
+  ]
 }
 
 resource "google_project_service" "cloudfunctions" {

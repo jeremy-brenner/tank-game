@@ -21,6 +21,8 @@ resource "google_storage_bucket" "frontend" {
   #   response_header = ["*"]
   #   max_age_seconds = 3600
   # }
+  
+  depends_on = [google_project_service.cloudfunctions]
 }
 
 resource "google_storage_bucket_iam_member" "frontend" {
