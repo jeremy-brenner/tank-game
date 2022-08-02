@@ -1,11 +1,13 @@
 
 locals {
+  jar_folder = "${local.project_root}/backend/build/libs"
+  jar_file = "tanks-0.1-all.jar"
   tanks_zip = "${path.root}/jars/tanks.zip"
 }
 
 data "archive_file" "init" {
   type        = "zip"
-  source_file = "${var.jar_folder}/${var.jar_file}"
+  source_file = "${local.jar_folder}/${local.jar_file}"
   output_path = local.tanks_zip
 }
 
