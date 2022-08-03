@@ -3,6 +3,7 @@ locals {
     "dns", 
     "cloudfunctions", 
     "cloudbuild",
+    "compute",
   ]
 }
 
