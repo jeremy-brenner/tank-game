@@ -27,6 +27,11 @@ resource "google_compute_url_map" "tanks" {
     path_rule {
       paths = ["/api/*"]
       service = google_compute_backend_service.api.id
+      route_action {
+        url_rewrite {
+          path_prefix_rewrite = "/tanks/"
+        }
+      }
     }
   }
 }
