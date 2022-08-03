@@ -1,15 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <ApiCheck />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ApiCheck from './components/ApiCheck.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ApiCheck
   }
 }
 </script>
