@@ -25,8 +25,8 @@ resource "google_compute_url_map" "tanks" {
     default_service = google_compute_backend_bucket.tanksfrontendvue.id
 
     path_rule {
-      paths   = ["/*"]
-      service = google_compute_backend_bucket.tanksfrontendvue.id
+      paths = ["/api/*"]
+      service = google_compute_backend_service.api.id
     }
   }
 }

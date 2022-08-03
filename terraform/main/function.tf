@@ -44,3 +44,20 @@ resource "google_cloudfunctions_function_iam_member" "invoker" {
   role   = "roles/cloudfunctions.invoker"
   member = "allUsers"
 }
+
+
+resource "google_compute_region_network_endpoint_group" "function_neg" {
+  name                  = "tanks-api-neg"
+  network_endpoint_type = "SERVERLESS"
+  region                = google_cloudfunctions_function.function.region
+  cloud_function {
+    function = google_cloudfunctions_function.function.name
+  }
+}
+
+resource "google_compute_backend_service" "api" {
+  name          = "tanks-api-backend"
+  backend {
+    group = google_compute_region_network_endpoint_group.function_neg.id
+  }
+}
